@@ -3,11 +3,12 @@ import {
  ZapparCamera, InstantTracker, ZapparCanvas, BrowserCompatibility,
 } from '@zappar/zappar-react-three-fiber';
 import { useGLTF } from '@react-three/drei';
-import gltf from './accessoryShelf.glb';
+import gltf from './threeRunner18.glb';
 
 function App() {
   const [placementMode, setPlacementMode] = useState(true);
   const { nodes } = useGLTF(gltf) ;
+  console.log(nodes,"nodes");
   return (
     <>
       <BrowserCompatibility />
@@ -25,12 +26,28 @@ function App() {
       <ZapparCanvas>
         <ZapparCamera />
         <InstantTracker placementMode={placementMode} placementCameraOffset={[0, 0, -5]}>
-        <mesh
-        geometry={nodes.accessoryShelf_2.geometry}
-        position={nodes.accessoryShelf_2.position}
-        rotation={nodes.accessoryShelf_2.rotation}
+        {/* <mesh
+        geometry={nodes.threeRunner18_1.geometry}
+        position={nodes.threeRunner18_1.position}
+        rotation={nodes.threeRunner18_1.rotation}
       >
+      </mesh> */}
+      <group position={[0.012, -0.08525, 0.022]} rotation={[0, 0, 0]}>
+      <mesh
+        geometry={nodes.threeRunner18_1.geometry}
+        position={nodes.threeRunner18_1.position}
+        rotation={nodes.threeRunner18_1.rotation}
+      >
+        {/* {returnMaterial(showError, <ElfaMesh metalColor={metalColor} />)} */}
       </mesh>
+      <mesh
+        geometry={nodes.threeRunner18_2.geometry}
+        position={nodes.threeRunner18_2.position}
+        rotation={nodes.threeRunner18_2.rotation}
+      >
+        {/* {returnMaterial(showError, <ElfaMetal metalColor={metalColor} />)} */}
+      </mesh>
+    </group>
         </InstantTracker>
         <directionalLight position={[2.5, 8, 5]} intensity={1.5} />
 
