@@ -4,6 +4,7 @@ import {
 } from '@zappar/zappar-react-three-fiber';
 import { useGLTF } from '@react-three/drei';
 import gltf from './threeRunner18.glb';
+import Standards from './Standards';
 
 function App() {
   const [placementMode, setPlacementMode] = useState(true);
@@ -26,12 +27,8 @@ function App() {
       <ZapparCanvas>
         <ZapparCamera />
         <InstantTracker placementMode={placementMode} placementCameraOffset={[0, 0, -5]}>
-        {/* <mesh
-        geometry={nodes.threeRunner18_1.geometry}
-        position={nodes.threeRunner18_1.position}
-        rotation={nodes.threeRunner18_1.rotation}
-      >
-      </mesh> */}
+          <Standards height="2140" />
+          <Standards height="2140" xDiff="490" />
       <group position={[0.012, -0.08525, 0.022]} rotation={[0, 0, 0]}>
       <mesh
         geometry={nodes.threeRunner18_1.geometry}
