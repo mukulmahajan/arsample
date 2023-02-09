@@ -5,7 +5,13 @@ import {
 import { useGLTF } from '@react-three/drei';
 import gltf from './threeRunner18.glb';
 import Standards from './Standards';
+import materials from './materials';
+import DrawerUnit from './DrawerUnit';
 
+const {
+  ElfaMetal,
+  ElfaMesh,
+} = materials;
 function App() {
   const [placementMode, setPlacementMode] = useState(true);
   const { nodes } = useGLTF(gltf) ;
@@ -35,15 +41,16 @@ function App() {
         position={nodes.threeRunner18_1.position}
         rotation={nodes.threeRunner18_1.rotation}
       >
-        {/* {returnMaterial(showError, <ElfaMesh metalColor={metalColor} />)} */}
+        <ElfaMesh metalColor={'platinum'} />
       </mesh>
       <mesh
         geometry={nodes.threeRunner18_2.geometry}
         position={nodes.threeRunner18_2.position}
         rotation={nodes.threeRunner18_2.rotation}
       >
-        {/* {returnMaterial(showError, <ElfaMetal metalColor={metalColor} />)} */}
+        <ElfaMetal metalColor={'platinum'} />
       </mesh>
+      {/* <DrawerUnit /> */}
     </group>
         </InstantTracker>
         <directionalLight position={[2.5, 8, 5]} intensity={1.5} />
